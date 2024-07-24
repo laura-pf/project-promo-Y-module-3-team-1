@@ -1,6 +1,27 @@
 import "../scss/App.scss";
+import { useState } from "react";
 
 function App() {
+  const [nameProject, setNameProject] = useState("Nombre del proyecto");
+  const [sloganProject, setSloganProject] = useState("Eslogan del proyecto");
+  const [technologies, setTechnologies] = useState("React JS - HTML - CSS");
+
+  const handleChangeProject = (event) => {
+    const valueProject = event.target.value;
+    setNameProject(valueProject);
+    //añadir codigo para que cuando la usuaria borre, se vuelva al valor inicial
+  };
+
+  const handleChangeSlogan = (event) => {
+    const valueSlogan = event.target.value;
+    setSloganProject(valueSlogan);
+  };
+
+  const handleChangeTechnologies = (event) => {
+    const valueTechnologies = event.target.value;
+    setTechnologies(valueTechnologies);
+  };
+
   return (
     <div className="container">
       <header className="header">
@@ -42,8 +63,8 @@ function App() {
             </div>
 
             <div className="card__project">
-              <h3 className="card__name">Elegant Workspace</h3>
-              <p className="card__slogan">Diseños Exclusivos</p>
+              <h3 className="card__name">{nameProject}</h3>
+              <p className="card__slogan">{sloganProject}</p>
               <h3 className="card__descriptionTitle">Product description</h3>
               <p className="card__description">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla,
@@ -52,7 +73,7 @@ function App() {
               </p>
 
               <div className="card__technicalInfo">
-                <p className="card__technologies">React JS - HTML - CSS</p>
+                <p className="card__technologies">{technologies}</p>
 
                 <a
                   className="icon icon__www"
@@ -85,6 +106,7 @@ function App() {
               name="name"
               id="name"
               placeholder="Nombre del proyecto"
+              onChange={handleChangeProject}
             />
             <input
               className="addForm__input"
@@ -92,6 +114,7 @@ function App() {
               name="slogan"
               id="slogan"
               placeholder="Slogan"
+              onChange={handleChangeSlogan}
             />
             <div className="addForm__2col">
               <input
@@ -115,6 +138,7 @@ function App() {
               name="technologies"
               id="technologies"
               placeholder="Tecnologías"
+              onChange={handleChangeTechnologies}
             />
             <textarea
               className="addForm__input"
