@@ -5,6 +5,9 @@ function App() {
   const [nameProject, setNameProject] = useState("Nombre del proyecto");
   const [sloganProject, setSloganProject] = useState("Eslogan del proyecto");
   const [technologies, setTechnologies] = useState("React JS - HTML - CSS");
+  const [description, setDescription] = useState("Descripción");
+  const [authorName, setAuthorName] = useState("Nombre");
+  const [authorJob, setAuthorJob] = useState("Profesión")
 
   const handleChangeProject = (event) => {
     const valueProject = event.target.value;
@@ -21,6 +24,24 @@ function App() {
     const valueTechnologies = event.target.value;
     setTechnologies(valueTechnologies);
   };
+
+  const handleChangeDescription = (event) => {
+    const valueDescription = event.target.value;
+    setDescription(valueDescription);
+  };
+
+  const handleChangeAuthor = (event) => {
+    const valueAuthor = event.target.value;
+    setAuthorName(valueAuthor);
+  };
+
+  const handleChangeJob = (event) => {
+    const valueJob = event.target.value;
+    setAuthorJob(valueJob);
+  }
+
+  
+
 
   return (
     <div className="container">
@@ -58,8 +79,8 @@ function App() {
 
             <div className="card__author">
               <div className="card__authorPhoto"></div>
-              <p className="card__job">Full stack Developer</p>
-              <h3 className="card__name">Emmelie Bjôrklund</h3>
+              <p className="card__job">{authorJob}</p>
+              <h3 className="card__name">{authorName}</h3>
             </div>
 
             <div className="card__project">
@@ -67,9 +88,10 @@ function App() {
               <p className="card__slogan">{sloganProject}</p>
               <h3 className="card__descriptionTitle">Product description</h3>
               <p className="card__description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla,
+                {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla,
                 quos? Itaque, molestias eveniet laudantium adipisci vitae
-                ratione
+                ratione */}
+                {description}
               </p>
 
               <div className="card__technicalInfo">
@@ -147,6 +169,7 @@ function App() {
               id="desc"
               placeholder="Descripción"
               rows="5"
+              onChange={handleChangeDescription}
             ></textarea>
           </fieldset>
 
@@ -160,6 +183,7 @@ function App() {
               name="autor"
               id="autor"
               placeholder="Nombre"
+              onChange={handleChangeAuthor}
             />
             <input
               className="addForm__input"
@@ -167,6 +191,7 @@ function App() {
               name="job"
               id="job"
               placeholder="Trabajo"
+              onChange={handleChangeJob}
             />
           </fieldset>
 
