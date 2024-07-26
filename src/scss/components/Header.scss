@@ -1,0 +1,33 @@
+@import "../core/variables.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  align-items: center;
+  text-decoration: none;
+  padding: 7px 5px;
+  gap: 7px;
+  height: 31px;
+  color: $color-white;
+  font: $font-title-brand;
+  text-transform: capitalize;
+  color: $color-white;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 7px 5px;
+    gap: 7px;
+  }
+  &__companyLogo {
+    height: 31px;
+    color: $color-white;
+  }
+  &__title {
+    font: $font-title-brand;
+    text-transform: capitalize;
+    color: $color-white;
+  }
+}

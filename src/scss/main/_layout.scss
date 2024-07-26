@@ -20,38 +20,6 @@
   background-color: $color-dark;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  align-items: center;
-  text-decoration: none;
-  padding: 7px 5px;
-  gap: 7px;
-  height: 31px;
-  color: $color-white;
-  font: $font-title-brand;
-  text-transform: capitalize;
-  color: $color-white;
-
-  &__brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 7px 5px;
-    gap: 7px;
-  }
-  &__companyLogo {
-    height: 31px;
-    color: $color-white;
-  }
-  &__title {
-    font: $font-title-brand;
-    text-transform: capitalize;
-    color: $color-white;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .main {
     max-width: 980px;
@@ -233,10 +201,9 @@
   background-image: radial-gradient(circle at 50% 50%, $color-dusk), #211e2e 92%;
 
   .title {
-      font: $font-title-biggest;
-      margin-block: 18px;
-    }
-
+    font: $font-title-biggest;
+    margin-block: 18px;
+  }
 
   &__title {
     position: relative;
@@ -310,18 +277,12 @@
     margin: 10px auto;
     display: flex;
     justify-content: space-between;
-    
+
     .addForm__input {
       width: calc((100% - 0.2rem) / 2);
       margin: 0;
     }
   }
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  padding: 19px;
 }
 
 /* COMPONENTS */
@@ -396,5 +357,3 @@
     background-image: url("../images/icons/github.svg");
   }
 }
-
-
