@@ -4,42 +4,70 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function App() {
+  const lorem =
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
   const [nameProject, setNameProject] = useState("Nombre del proyecto");
   const [sloganProject, setSloganProject] = useState("Eslogan del proyecto");
   const [technologies, setTechnologies] = useState("React JS - HTML - CSS");
-  const [description, setDescription] = useState("Descripción");
+  const [description, setDescription] = useState(lorem);
   const [authorName, setAuthorName] = useState("Nombre");
   const [authorJob, setAuthorJob] = useState("Profesión");
+  const [demoWeb, setDemoWeb] = useState("");
+  const [gitHub, setGitHub] = useState("");
 
   const handleChangeProject = (event) => {
     const valueProject = event.target.value;
-    setNameProject(valueProject);
-    //añadir codigo para que cuando la usuaria borre, se vuelva al valor inicial
+    setNameProject(valueProject ? valueProject : "Nombre del proyecto");
+    /*Esta linea de codigo lo que hace es:
+    if (valueProject) {
+      setNameProject(valueProject);
+    } else {
+      setNameProject(valueProject);
+    }
+    */
   };
 
   const handleChangeSlogan = (event) => {
     const valueSlogan = event.target.value;
-    setSloganProject(valueSlogan);
+    setSloganProject(valueSlogan ? valueSlogan : "Eslogan del proyecto");
+    /*Esta linea de codigo lo que hace es:
+    if (valueSlogan) {
+      setSloganProject(valueSlogan);
+    } else {
+      setSloganProject("Eslogan del proyecto");
+    }*/
   };
 
   const handleChangeTechnologies = (event) => {
     const valueTechnologies = event.target.value;
-    setTechnologies(valueTechnologies);
+    setTechnologies(
+      valueTechnologies ? valueTechnologies : "React JS - HTML - CSS"
+    );
   };
 
   const handleChangeDescription = (event) => {
     const valueDescription = event.target.value;
-    setDescription(valueDescription);
+    setDescription(valueDescription ? valueDescription : lorem);
   };
 
   const handleChangeAuthor = (event) => {
     const valueAuthor = event.target.value;
-    setAuthorName(valueAuthor);
+    setAuthorName(valueAuthor ? valueAuthor : "Nombre");
   };
 
   const handleChangeJob = (event) => {
     const valueJob = event.target.value;
-    setAuthorJob(valueJob);
+    setAuthorJob(valueJob ? valueJob : "Profesión");
+  };
+
+  const handleGitHub = (event) => {
+    const valueGitHub = event.target.value;
+    setGitHub(valueGitHub);
+  };
+
+  const handleDemoWeb = (event) => {
+    const valueDemoWeb = event.target.value;
+    setDemoWeb(valueDemoWeb);
   };
 
   return (
@@ -87,15 +115,17 @@ function App() {
 
                 <a
                   className="icon icon__www"
-                  href="#"
+                  href={demoWeb}
                   title="Haz click para ver el proyecto online"
+                  target="_blank"
                 >
                   Web link
                 </a>
                 <a
                   className="icon icon__github"
-                  href="#"
+                  href={gitHub}
                   title="Haz click para ver el código del proyecto"
+                  target="_blank"
                 >
                   GitHub link
                 </a>
@@ -133,6 +163,7 @@ function App() {
                 name="repo"
                 id="repo"
                 placeholder="Repositorio"
+                onChange={handleGitHub}
               />
               <input
                 className="addForm__input"
@@ -140,6 +171,7 @@ function App() {
                 name="demo"
                 id="demo"
                 placeholder="Demo"
+                onChange={handleDemoWeb}
               />
             </div>
             <input
