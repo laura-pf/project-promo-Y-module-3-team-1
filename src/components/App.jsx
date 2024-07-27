@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function App() {
+  // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
   const [nameProject, setNameProject] = useState("Nombre del proyecto");
@@ -14,6 +15,12 @@ function App() {
   const [authorJob, setAuthorJob] = useState("Profesión");
   const [demoWeb, setDemoWeb] = useState("");
   const [gitHub, setGitHub] = useState("");
+  const [backgroundProject, setBackgroundProject] = useState(
+    `url(./src/images/descarga-_5_.png)`
+  );
+  const [photoAutor, setPhotoAutor] = useState(
+    `url(./src/images/chicamegafono.jpg)`
+  );
 
   const handleChangeProject = (event) => {
     const valueProject = event.target.value;
@@ -70,6 +77,36 @@ function App() {
     setDemoWeb(valueDemoWeb);
   };
 
+  //BOTON AÑADIR IMAGEN: (proyecto)
+  const fr = new FileReader();
+
+  /**
+   * @param {evento} e
+   */
+  function getImage(e) {
+    const myFile = e.currentTarget.files[0];
+    fr.addEventListener("load", writeImage);
+    fr.readAsDataURL(myFile);
+  }
+
+  function writeImage() {
+    const backgroundSelect = `url(${fr.result})`;
+
+    setBackgroundProject(backgroundSelect);
+  }
+
+  //BOTON AÑADIR IMAGEN USUARIO
+  function getImageUser(e) {
+    const myFile = e.currentTarget.files[0];
+    fr.addEventListener("load", writeImageUser);
+    fr.readAsDataURL(myFile);
+  }
+
+  function writeImageUser() {
+    const imageUser = `url(${fr.result})`;
+    setPhotoAutor(imageUser);
+  }
+
   return (
     <div className="container">
       <Header />
@@ -85,16 +122,28 @@ function App() {
         </section>
 
         <section className="preview">
-          <div className="projectImage"></div>
+          <div
+            className="projectImage"
+            style={{
+              backgroundImage: `${backgroundProject}`,
+              repeat: "repeat",
+            }}
+          ></div>
           <article className="card">
             <h2 className="card__projectTitle">
               <span className="card__projectTitle--text">
-                Personal project card
+                Proyecto personal
               </span>
             </h2>
 
             <div className="card__author">
-              <div className="card__authorPhoto"></div>
+              <div
+                className="card__authorPhoto"
+                style={{
+                  backgroundImage: `${photoAutor}`,
+                  repeat: "repeat",
+                }}
+              ></div>
               <p className="card__job">{authorJob}</p>
               <h3 className="card__name">{authorName}</h3>
             </div>
@@ -102,13 +151,10 @@ function App() {
             <div className="card__project">
               <h3 className="card__name">{nameProject}</h3>
               <p className="card__slogan">{sloganProject}</p>
-              <h3 className="card__descriptionTitle">Product description</h3>
-              <p className="card__description">
-                {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla,
-                quos? Itaque, molestias eveniet laudantium adipisci vitae
-                ratione */}
-                {description}
-              </p>
+              <h3 className="card__descriptionTitle">
+                Descripción del proyecto
+              </h3>
+              <p className="card__description">{description}</p>
 
               <div className="card__technicalInfo">
                 <p className="card__technologies">{technologies}</p>
@@ -224,6 +270,7 @@ function App() {
               type="file"
               name="image"
               id="image"
+              onChange={getImage}
             />
             <label htmlFor="photo" className="button">
               Subir foto de la autora
@@ -233,6 +280,7 @@ function App() {
               type="file"
               name="photo"
               id="photo"
+              onChange={getImageUser}
             />
             <button className="button--large">Guardar proyecto</button>
           </fieldset>
