@@ -16,7 +16,7 @@ function App() {
   const [demoWeb, setDemoWeb] = useState("");
   const [gitHub, setGitHub] = useState("");
   const [backgroundProject, setBackgroundProject] = useState(
-    `url(./src/images/descarga-_5_.png)`
+    `url(./src/images/bombilla.jpg)`
   );
   const [photoAutor, setPhotoAutor] = useState(
     `url(./src/images/chicamegafono.jpg)`
@@ -116,7 +116,7 @@ function App() {
           <p className="hero__text">
             Escaparate en línea para recoger ideas a través de la tecnología
           </p>
-          <a className="hero__button--link" href="./">
+          <a className="button" href="./">
             Ver proyectos
           </a>
         </section>
@@ -159,22 +159,24 @@ function App() {
               <div className="card__technicalInfo">
                 <p className="card__technologies">{technologies}</p>
 
-                <a
-                  className="icon icon__www"
-                  href={demoWeb}
-                  title="Haz click para ver el proyecto online"
-                  target="_blank"
-                >
-                  Web link
-                </a>
-                <a
-                  className="icon icon__github"
-                  href={gitHub}
-                  title="Haz click para ver el código del proyecto"
-                  target="_blank"
-                >
-                  GitHub link
-                </a>
+                <div className="container-icons">
+                  <a
+                    className="icon icon__www"
+                    href={demoWeb}
+                    title="Haz click para ver el proyecto online"
+                    target="_blank"
+                  >
+                    Web link
+                  </a>
+                  <a
+                    className="icon icon__github"
+                    href={gitHub}
+                    title="Haz click para ver el código del proyecto"
+                    target="_blank"
+                  >
+                    GitHub link
+                  </a>
+                </div>
               </div>
             </div>
           </article>
@@ -282,7 +284,7 @@ function App() {
               id="photo"
               onChange={getImageUser}
             />
-            <button className="button--large">Guardar proyecto</button>
+            <button className="button">Guardar proyecto</button>
           </fieldset>
         </form>
       </main>
