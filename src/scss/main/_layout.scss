@@ -37,7 +37,7 @@
   margin-bottom: 8px;
   font: $font-text-big;
   text-align: center;
-  margin-inline: 4rem;
+  // margin-inline: 4rem;
   margin-bottom: 1.8rem;
   @media screen and (min-width: 768px) {
     grid-column: span 2;
@@ -47,9 +47,10 @@
     width: 100%;
     margin-bottom: 8px;
     @media screen and (min-width: 768px) {
-      width: 85%;
+      width: 90%;
     }
   }
+
   &__text {
     font: $font-text-big;
     text-align: center;

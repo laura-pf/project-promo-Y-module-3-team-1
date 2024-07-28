@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Titulo from "../images/titulo.png";
+import Paper from "../images/paper.png";
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
@@ -17,7 +18,7 @@ function App() {
   const [demoWeb, setDemoWeb] = useState("");
   const [gitHub, setGitHub] = useState("");
   const [backgroundProject, setBackgroundProject] = useState(
-    `url(./src/images/descarga-_5_.png)`
+    `url(./src/images/photonews.jpg)`
   );
   const [photoAutor, setPhotoAutor] = useState(
     `url(./src/images/chicamegafono.jpg)`
@@ -115,12 +116,15 @@ function App() {
         <section className="hero">
           {/* <h2 className="hero__title">Proyectos molones</h2> */}
           <img className="hero__title" src={Titulo} alt="Titulo" />
-          <p className="hero__text">
-            Escaparate en línea para recoger ideas a través de la tecnología
-          </p>
-          <a className="hero__button--link" href="./">
-            Ver proyectos
-          </a>
+          <div className="hero__div">
+            <p className="hero__text">
+              Escaparate en línea para recoger ideas a través de la tecnología
+            </p>
+
+            <a className="hero__button--link" href="./">
+              Ver proyectos
+            </a>
+          </div>
         </section>
 
         <section className="preview">
