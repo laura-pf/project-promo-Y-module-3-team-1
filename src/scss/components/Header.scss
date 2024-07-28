@@ -1,4 +1,5 @@
 @import "../core/variables.scss";
+// @import Titulo from
 
 .header {
   display: flex;
@@ -29,5 +30,8 @@
     font: $font-title-brand;
     text-transform: capitalize;
     color: $color-white;
+  }
+  &__subtitle {
+    width: 40%;
   }
 }
