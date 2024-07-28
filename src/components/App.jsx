@@ -3,7 +3,6 @@ import { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Titulo from "../images/titulo.png";
-import Paper from "../images/paper.png";
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
@@ -24,7 +23,7 @@ function App() {
     `url(./src/images/chicamegafono.jpg)`
   );
 
-  const [form, setForm] = useState(`url(./src/images/paper1.jpg)`);
+  const [formImage, setForm] = useState(`url(./src/images/paper3.jpeg)`);
 
   const handleChangeProject = (event) => {
     const valueProject = event.target.value;
@@ -188,7 +187,10 @@ function App() {
           </article>
         </section>
 
-        <div className="addForm__div" style={{ backgroundImage: `${form}` }}>
+        <div
+          className="addForm__div"
+          style={{ backgroundImage: `${formImage}` }}
+        >
           <form action="" className="addForm">
             <h2 className="title">Información</h2>
             <fieldset className="addForm__group">
