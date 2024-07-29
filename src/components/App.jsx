@@ -98,7 +98,7 @@ function App() {
           job={autorJob}
           background={backgroundProject}
         />
-        <Form onChangeForm={changeValue} onclickPhoto={writeImage} />
+        <Form onChangeForm={changeValue} fr={fr} onChangePhoto={writeImage} />
       </main>
       <Footer />
     </div>

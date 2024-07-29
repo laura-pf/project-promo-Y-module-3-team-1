@@ -131,7 +131,7 @@ function Form(props) {
         <label htmlFor="image" className="button">
           Subir foto del proyecto
         </label>
-        <Upload onClickPhoto={props.writeImage} />
+        <Upload onChangePhoto={props.onChangePhoto} fr={props.fr} />
         <label htmlFor="photo" className="button">
           Subir foto de la autora
         </label>

@@ -1,11 +1,8 @@
 function Upload(props) {
-  /**
-   * @param {evento} e
-   */
   function getImage(e) {
     const myFile = e.currentTarget.files[0];
-    fr.addEventListener("load", props.onClickPhoto);
-    fr.readAsDataURL(myFile);
+    props.fr.addEventListener("load", props.onChangePhoto);
+    props.fr.readAsDataURL(myFile);
   }
 
   return (
@@ -15,7 +12,7 @@ function Upload(props) {
         type="file"
         name="image"
         id="image"
-        onClik={getImage}
+        onChange={getImage}
       />
       <input
         className="addForm__hidden"
