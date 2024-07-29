@@ -23,8 +23,6 @@ function App() {
     `url(./src/images/chicamegafono.jpg)`
   );
 
-  const [formImage, setForm] = useState(`url(./src/images/paper3.jpeg)`);
-
   const handleChangeProject = (event) => {
     const valueProject = event.target.value;
     setNameProject(valueProject ? valueProject : "Nombre del proyecto");
@@ -187,10 +185,7 @@ function App() {
           </article>
         </section>
 
-        <div
-          className="addForm__div"
-          style={{ backgroundImage: `${formImage}` }}
-        >
+        <div className="addForm__div">
           <form action="" className="addForm">
             <h2 className="title">Información</h2>
             <fieldset className="addForm__group">
