@@ -13,9 +13,9 @@ function Preview(props) {
           <span className="card__projectTitle--text">Proyecto personal</span>
         </h2>
 
-        <div className="card__autor Photo">
+        <div className="card__autor">
           <div
-            className="card__autor"
+            className="card__autorPhoto"
             style={{
               backgroundImage: `${props.photo}`,
               repeat: "repeat",
