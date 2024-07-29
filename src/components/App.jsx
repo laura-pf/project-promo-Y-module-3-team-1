@@ -17,12 +17,12 @@ function App() {
   const [autorJob, setautorJob] = useState("Profesión");
   const [demoWeb, setDemoWeb] = useState("");
   const [gitHub, setGitHub] = useState("");
-  // const [backgroundProject, setBackgroundProject] = useState(
-  //   `url(./src/images/descarga-_5_.png)`
-  // );
-  // const [photoAutor, setPhotoAutor] = useState(
-  //   `url(./src/images/chicamegafono.jpg)`
-  // );
+  const [backgroundProject, setBackgroundProject] = useState(
+    `url(./src/images/descarga-_5_.png)`
+  );
+  const [photoAutor, setPhotoAutor] = useState(
+    `url(./src/images/chicamegafono.jpg)`
+  );
 
   function changeValue(value, id) {
     if (id === "name") {
@@ -45,34 +45,17 @@ function App() {
   }
 
   //BOTON AÑADIR IMAGEN: (proyecto)
-  // const fr = new FileReader();
+  const fr = new FileReader();
 
-  // /**
-  //  * @param {evento} e
-  //  */
-  // function getImage(e) {
-  //   const myFile = e.currentTarget.files[0];
-  //   fr.addEventListener("load", writeImage);
-  //   fr.readAsDataURL(myFile);
-  // }
+  function writeImage() {
+    const backgroundSelect = `url(${fr.result})`;
+    setBackgroundProject(backgroundSelect);
+  }
 
-  // function writeImage() {
-  //   const backgroundSelect = `url(${fr.result})`;
-
-  //   setBackgroundProject(backgroundSelect);
-  // }
-
-  // //BOTON AÑADIR IMAGEN USUARIO
-  // function getImageUser(e) {
-  //   const myFile = e.currentTarget.files[0];
-  //   fr.addEventListener("load", writeImageUser);
-  //   fr.readAsDataURL(myFile);
-  // }
-
-  // function writeImageUser() {
-  //   const imageUser = `url(${fr.result})`;
-  //   setPhotoAutor(imageUser);
-  // }
+  function writeImageUser() {
+    const imageUser = `url(${fr.result})`;
+    setPhotoAutor(imageUser);
+  }
 
   return (
     <div className="container">
@@ -97,8 +80,15 @@ function App() {
           description={description}
           autor={autorName}
           job={autorJob}
+          background={backgroundProject}
+          photo={photoAutor}
         />
-        <Form onChangeForm={changeValue} />
+        <Form
+          onChangeForm={changeValue}
+          fr={fr}
+          onClickBackround={writeImage}
+          onChangePhotoUser={writeImageUser}
+        />
       </main>
       <Footer />
     </div>

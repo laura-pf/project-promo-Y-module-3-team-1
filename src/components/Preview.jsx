@@ -3,27 +3,23 @@ function Preview(props) {
     <section className="preview">
       <div
         className="projectImage"
-        // style={{
-        //   backgroundImage: `${backgroundProject}`,
-        //   repeat: "repeat",
-        // }}
+        style={{
+          backgroundImage: `${props.background}`,
+          repeat: "repeat",
+        }}
       ></div>
       <article className="card">
         <h2 className="card__projectTitle">
           <span className="card__projectTitle--text">Proyecto personal</span>
         </h2>
 
-        <div
-          className="card__autor
-"
-        >
+        <div className="card__autor Photo">
           <div
-            className="card__autor
-Photo"
-            // style={{
-            //   backgroundImage: `${photoAutor}`,
-            //   repeat: "repeat",
-            // }}
+            className="card__autor"
+            style={{
+              backgroundImage: `${props.photo}`,
+              repeat: "repeat",
+            }}
           ></div>
           <p className="card__job">{props.job}</p>
           <h3 className="card__name">{props.autor}</h3>

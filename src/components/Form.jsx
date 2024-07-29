@@ -47,6 +47,22 @@ function Form(props) {
     props.onChangeForm(valueJob, idJob);
   }
 
+  /**
+   * @param {evento} e
+   */
+
+  function getImage(e) {
+    const myFile = e.currentTarget.files[0];
+    props.fr.addEventListener("load", props.onClickBackround);
+    props.fr.readAsDataURL(myFile);
+  }
+
+  function getImageUser(e) {
+    const myFile = e.currentTarget.files[0];
+    props.fr.addEventListener("load", props.onChangePhotoUser);
+    props.fr.readAsDataURL(myFile);
+  }
+
   return (
     <form action="" className="addForm">
       <h2 className="title">Información</h2>
@@ -134,7 +150,7 @@ function Form(props) {
           type="file"
           name="image"
           id="image"
-          //   onChange={getImage}
+          onChange={getImage}
         />
         <label htmlFor="photo" className="button">
           Subir foto de la autora
@@ -144,8 +160,9 @@ function Form(props) {
           type="file"
           name="photo"
           id="photo"
-          //   onChange={getImageUser}
+          onChange={getImageUser}
         />
+
         <button className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>
