@@ -17,9 +17,9 @@ function App() {
   const [autorJob, setautorJob] = useState("Profesión");
   const [demoWeb, setDemoWeb] = useState("");
   const [gitHub, setGitHub] = useState("");
-  // const [backgroundProject, setBackgroundProject] = useState(
-  //   `url(./src/images/descarga-_5_.png)`
-  // );
+  const [backgroundProject, setBackgroundProject] = useState(
+    `url(./src/images/descarga-_5_.png)`
+  );
   // const [photoAutor, setPhotoAutor] = useState(
   //   `url(./src/images/chicamegafono.jpg)`
   // );
@@ -45,7 +45,7 @@ function App() {
   }
 
   //BOTON AÑADIR IMAGEN: (proyecto)
-  // const fr = new FileReader();
+  const fr = new FileReader();
 
   // /**
   //  * @param {evento} e
@@ -56,11 +56,10 @@ function App() {
   //   fr.readAsDataURL(myFile);
   // }
 
-  // function writeImage() {
-  //   const backgroundSelect = `url(${fr.result})`;
-
-  //   setBackgroundProject(backgroundSelect);
-  // }
+  function writeImage() {
+    const backgroundSelect = `url(${fr.result})`;
+    setBackgroundProject(backgroundSelect);
+  }
 
   // //BOTON AÑADIR IMAGEN USUARIO
   // function getImageUser(e) {
@@ -97,8 +96,9 @@ function App() {
           description={description}
           autor={autorName}
           job={autorJob}
+          background={backgroundProject}
         />
-        <Form onChangeForm={changeValue} />
+        <Form onChangeForm={changeValue} onclickPhoto={writeImage} />
       </main>
       <Footer />
     </div>

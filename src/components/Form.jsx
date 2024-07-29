@@ -1,3 +1,5 @@
+import Upload from "./Upload";
+
 function Form(props) {
   function handleChangeProject(event) {
     const valueProject = event.target.value;
@@ -129,23 +131,12 @@ function Form(props) {
         <label htmlFor="image" className="button">
           Subir foto del proyecto
         </label>
-        <input
-          className="addForm__hidden"
-          type="file"
-          name="image"
-          id="image"
-          //   onChange={getImage}
-        />
+        <Upload onClickPhoto={props.writeImage} />
         <label htmlFor="photo" className="button">
           Subir foto de la autora
         </label>
-        <input
-          className="addForm__hidden"
-          type="file"
-          name="photo"
-          id="photo"
-          //   onChange={getImageUser}
-        />
+        <Upload />
+
         <button className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>
