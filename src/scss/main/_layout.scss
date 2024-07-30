@@ -1,15 +1,9 @@
 :root {
-  font: $font-normal; /* font-size: 10px; */
+  font-size: 12px;
   color: $color-white;
 }
 
-@media screen and (min-width: 420px) {
-  :root {
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 768px) {
   :root {
     font-size: 14px;
   }
@@ -32,6 +26,10 @@
 }
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 3rem;
   font: $font-title-big;
   margin-bottom: 8px;
@@ -53,8 +51,17 @@
   &__text {
     font: $font-title-medium;
     text-align: center;
-    margin-inline: 4rem;
-    margin-bottom: 1.8rem;
+    // margin-inline: 4rem;
+    // margin-bottom: 1.8rem;
+    font-size: 14px;
+    width: 260px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0 10px;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+      font: $font-title-medium;
+    }
   }
   &__button--link {
     display: block;
@@ -91,17 +98,28 @@
   //   background-image: url("../images/ebook-example.jpg");
   background-position: top center;
   background-size: cover;
+  position: relative;
+
+  .card__pin {
+    height: 50px;
+    width: 50px;
+    left: 50%;
+    filter: hue-rotate(45deg);
+  }
 }
 
 .preview .card {
-  margin-inline: 20px;
-
+  margin-inline: 10px;
   transform: translateY(-45px);
+
+  @media (min-width: 768px) {
+    margin-inline: 20px;
+  }
 }
 
 .card {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: auto 1fr;
 
   color: $color-black;
   font: $font-card-text;
@@ -109,13 +127,34 @@
   background-color: #ffeb3b; /* Color del Post-it */
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   position: relative;
-  padding: 20px;
+  padding: 12px;
+
+  @media (min-width: 768px) {
+    padding: 20px;
+  }
+
+  &__pin {
+    background-image: url(../images/chincheta.png);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 10px;
+    top: -20px;
+
+    &--right {
+      left: auto;
+      right: 0px;
+    }
+  }
+
   &__projectTitle {
-    grid-column: 2;
+    grid-column: 1 / 3;
     position: relative;
     margin: 15px 10px 1rem 0;
     text-align: center;
     text-transform: capitalize;
+    display: inline;
 
     font: $font-card-section;
   }
@@ -129,32 +168,43 @@
     z-index: 0;
 
     background-image: linear-gradient(
-        to right,
-        white,
-        #232323 15%,
-        $color-black
-      ),
-      #232323 85%, white;
+      to right,
+      white,
+      #232323 15%,
+      $color-black,
+      #232323 85%,
+      white
+    );
   }
   &__projectTitle--text {
     position: relative;
-    padding-inline: 0.1em;
+    padding-inline: 1em;
     z-index: 1;
-    background-color: $color-white;
+    font: $font-card-title;
+    background-color: #ffeb3b;
   }
   &__autor {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+
+    @media (min-width: 768px) {
+      padding: 0 20px;
+    }
   }
   &__autorPhoto {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-position: center;
     background-size: cover;
     margin-bottom: 0.8rem;
+
+    @media (min-width: 768px) {
+      width: 90px;
+      height: 90px;
+    }
   }
   &_job {
     margin-bottom: 0.2rem;
@@ -164,7 +214,11 @@
     margin-bottom: 0.2rem;
   }
   &__project {
-    margin-right: 10px;
+    margin-left: 10px;
+
+    @media (min-width: 768px) {
+      margin-left: 20px;
+    }
   }
   &__slogan {
     font: $font-card-subtitle;
@@ -177,7 +231,9 @@
   }
   &__technicalInfo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 15px;
     margin-top: 15px;
   }
@@ -199,10 +255,14 @@
   background-size: cover;
 
   .title {
-    font: $font-title-biggest;
+    font: $font-title-medium;
     margin-top: 40px;
     margin-bottom: 10px;
     padding: 3px;
+
+    @media (min-width: 768px) {
+      font: $font-title-biggest;
+    }
   }
 
   &__title {
@@ -212,9 +272,13 @@
     margin-block: 0.5rem;
     border-bottom: solid 2px black;
 
-    font: $font-title-medium;
+    font: $font-card-title;
     padding-left: 8px;
     width: 100%;
+
+    @media (min-width: 768px) {
+      font: $font-title-medium;
+    }
 
     // &:before {
     //   content: "";
@@ -317,6 +381,15 @@
   text-align: center;
 
   cursor: pointer;
+  &--color--blue {
+    background-color: rgb(72, 211, 216);
+  }
+  &--color--rose {
+    background-color: rgb(241, 157, 238);
+  }
+  &--color--green {
+    background-color: rgb(140, 242, 111);
+  }
 }
 
 .button--large {
@@ -347,11 +420,14 @@
 /* ICONS */
 .container-icons {
   display: flex;
-  gap: 20px;
+  gap: 12px;
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
 }
 .icon {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1rem;
+  height: 1rem;
   color: transparent;
   cursor: pointer;
   border-radius: 50%;
@@ -361,5 +437,10 @@
   }
   &__github {
     background-image: url("../images/icons/github.svg");
+  }
+
+  @media (min-width: 768px) {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 }

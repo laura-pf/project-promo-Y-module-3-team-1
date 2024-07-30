@@ -7,8 +7,12 @@ function Preview(props) {
           backgroundImage: `${props.background}`,
           repeat: "repeat",
         }}
-      ></div>
+      >
+        <div className="card__pin"></div>
+      </div>
       <article className="card">
+        <div className="card__pin"></div>
+        <div className="card__pin card__pin--right"></div>
         <h2 className="card__projectTitle">
           <span className="card__projectTitle--text">Proyecto personal</span>
         </h2>
@@ -40,7 +44,7 @@ function Preview(props) {
                 title="Haz click para ver el proyecto online"
                 target="_blank"
               >
-                Web link
+                <i className="fa-regular fa-globe"></i>
               </a>
               <a
                 className="icon icon__github"
@@ -48,7 +52,7 @@ function Preview(props) {
                 title="Haz click para ver el código del proyecto"
                 target="_blank"
               >
-                GitHub link
+                <i className="fa-regular fa-github"></i>
               </a>
             </div>
           </div>

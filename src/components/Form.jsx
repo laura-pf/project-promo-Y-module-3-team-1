@@ -142,7 +142,7 @@ function Form(props) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label htmlFor="image" className="button">
+        <label htmlFor="image" className="button button--color--blue">
           Subir foto del proyecto
         </label>
         <input
@@ -152,7 +152,7 @@ function Form(props) {
           id="image"
           onChange={getImage}
         />
-        <label htmlFor="photo" className="button">
+        <label htmlFor="photo" className="button button--color--rose">
           Subir foto de la autora
         </label>
         <input
@@ -163,7 +163,9 @@ function Form(props) {
           onChange={getImageUser}
         />
 
-        <button className="button">Guardar proyecto</button>
+        <button className="button button--color--green">
+          Guardar proyecto
+        </button>
       </fieldset>
     </form>
   );
