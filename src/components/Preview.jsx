@@ -33,23 +33,24 @@ function Preview(props) {
 
           <div className="card__technicalInfo">
             <p className="card__technologies">{props.technologies}</p>
-
-            <a
-              className="icon icon__www"
-              href={props.demoWeb}
-              title="Haz click para ver el proyecto online"
-              target="_blank"
-            >
-              Web link
-            </a>
-            <a
-              className="icon icon__github"
-              href={props.gitHub}
-              title="Haz click para ver el código del proyecto"
-              target="_blank"
-            >
-              GitHub link
-            </a>
+            <div className="container-icons">
+              <a
+                className="icon icon__www"
+                href={props.demoWeb}
+                title="Haz click para ver el proyecto online"
+                target="_blank"
+              >
+                Web link
+              </a>
+              <a
+                className="icon icon__github"
+                href={props.gitHub}
+                title="Haz click para ver el código del proyecto"
+                target="_blank"
+              >
+                GitHub link
+              </a>
+            </div>
           </div>
         </div>
       </article>
