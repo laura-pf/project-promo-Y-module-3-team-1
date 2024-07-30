@@ -18,7 +18,7 @@ function App() {
   const [demoWeb, setDemoWeb] = useState("");
   const [gitHub, setGitHub] = useState("");
   const [backgroundProject, setBackgroundProject] = useState(
-    `url(./src/images/descarga-_5_.png)`
+    `url(./src/images/bombilla.jpg)`
   );
   const [photoAutor, setPhotoAutor] = useState(
     `url(./src/images/chicamegafono.jpg)`
@@ -66,7 +66,7 @@ function App() {
           <p className="hero__text">
             Escaparate en línea para recoger ideas a través de la tecnología
           </p>
-          <a className="hero__button--link" href="./">
+          <a className="button" href="./">
             Ver proyectos
           </a>
         </section>

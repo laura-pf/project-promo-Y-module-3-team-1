@@ -163,7 +163,7 @@ function Form(props) {
           onChange={getImageUser}
         />
 
-        <button className="button--large">Guardar proyecto</button>
+        <button className="button">Guardar proyecto</button>
       </fieldset>
     </form>
   );
