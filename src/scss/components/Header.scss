@@ -37,3 +37,10 @@
     }
   }
 }
+
+.logoAdalab {
+  width: 100px;
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+}
