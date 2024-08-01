@@ -32,6 +32,7 @@ function Form(props) {
           name="name"
           id="name"
           placeholder="Nombre del proyecto"
+          required
           onChange={handleChangeProject}
         />
         <input
@@ -40,6 +41,7 @@ function Form(props) {
           name="slogan"
           id="slogan"
           placeholder="Slogan"
+          required
           onChange={handleChangeProject}
         />
         <div className="addForm__2col">
@@ -49,6 +51,7 @@ function Form(props) {
             name="repo"
             id="repo"
             placeholder="Repositorio"
+            required
             onChange={handleChangeProject}
           />
           <input
@@ -57,6 +60,7 @@ function Form(props) {
             name="demo"
             id="demo"
             placeholder="Demo"
+            required
             onChange={handleChangeProject}
           />
         </div>
@@ -66,6 +70,7 @@ function Form(props) {
           name="technologies"
           id="technologies"
           placeholder="Tecnologías"
+          required
           onChange={handleChangeProject}
         />
         <textarea
@@ -74,6 +79,7 @@ function Form(props) {
           name="desc"
           id="desc"
           placeholder="Descripción"
+          required
           onChange={handleChangeProject}
         ></textarea>
       </fieldset>
@@ -86,6 +92,7 @@ function Form(props) {
           name="autor"
           id="autor"
           placeholder="Nombre"
+          required
           onChange={handleChangeProject}
         />
         <input
@@ -94,6 +101,7 @@ function Form(props) {
           name="job"
           id="job"
           placeholder="Trabajo"
+          required
           onChange={handleChangeProject}
         />
       </fieldset>
