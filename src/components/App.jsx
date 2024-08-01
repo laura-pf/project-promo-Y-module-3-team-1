@@ -10,14 +10,17 @@ function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
-  const [nameProject, setNameProject] = useState("Nombre del proyecto");
-  const [sloganProject, setSloganProject] = useState("Eslogan del proyecto");
-  const [technologies, setTechnologies] = useState("React JS - HTML - CSS");
-  const [description, setDescription] = useState(lorem);
-  const [autorName, setautorName] = useState("Nombre");
-  const [autorJob, setautorJob] = useState("Profesión");
-  const [demoWeb, setDemoWeb] = useState("");
-  const [gitHub, setGitHub] = useState("");
+  const [project, setProject] = useState({
+    name: "Nombre del proyecto",
+    slogan: "Eslogan del proyecto",
+    technologies: "React JS - HTML - CSS",
+    description: lorem,
+    author: "Nombre del autor",
+    job: "Profesión",
+    demo: "",
+    gitHub: "",
+  });
+
   const [backgroundProject, setBackgroundProject] = useState(
     `url(./src/images/photonews.jpg)`
   );
@@ -27,21 +30,39 @@ function App() {
 
   function changeValue(value, id) {
     if (id === "name") {
-      setNameProject(value ? value : "Nombre del proyecto");
+      setProject({
+        ...project,
+        name: value ? value : "Nombre del proyecto",
+      });
     } else if (id === "slogan") {
-      setSloganProject(value ? value : "Eslogan del proyecto");
+      setProject({
+        ...project,
+        slogan: value ? value : "Eslogan del proyecto",
+      });
     } else if (id === "repo") {
-      setGitHub(value);
+      setProject({ ...project, gitHub: value });
     } else if (id === "demo") {
-      setDemoWeb(value);
+      setProject({ ...project, demo: value });
     } else if (id === "technologies") {
-      setTechnologies(value ? value : "React JS - HTML - CSS");
+      setProject({
+        ...project,
+        technologies: value ? value : "React JS - HTML - CSS",
+      });
     } else if (id === "desc") {
-      setDescription(value ? value : lorem);
+      setProject({
+        ...project,
+        description: value ? value : lorem,
+      });
     } else if (id === "autor") {
-      setautorName(value ? value : "Nombre");
+      setProject({
+        ...project,
+        author: value ? value : "Nombre",
+      });
     } else if (id === "job") {
-      setautorJob(value ? value : "Profesión");
+      setProject({
+        ...project,
+        job: value ? value : "Profesión",
+      });
     }
   }
 
@@ -74,18 +95,12 @@ function App() {
         </section>
 
         <Preview
-          project={nameProject}
-          slogan={sloganProject}
-          gitHub={gitHub}
-          demoWeb={demoWeb}
-          technologies={technologies}
-          description={description}
-          autor={autorName}
-          job={autorJob}
+          previewProject={project}
           background={backgroundProject}
           photo={photoAutor}
         />
         <Form
+          previewProject={project}
           onChangeForm={changeValue}
           fr={fr}
           onClickBackround={writeImage}

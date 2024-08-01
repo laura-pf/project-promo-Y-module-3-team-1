@@ -25,22 +25,26 @@ function Preview(props) {
               repeat: "repeat",
             }}
           ></div>
-          <p className="card__job">{props.job}</p>
-          <h3 className="card__name">{props.autor}</h3>
+          <p className="card__job">{props.previewProject.job}</p>
+          <h3 className="card__name">{props.previewProject.author}</h3>
         </div>
 
         <div className="card__project">
-          <h3 className="card__name">{props.project}</h3>
-          <p className="card__slogan">{props.slogan}</p>
+          <h3 className="card__name">{props.previewProject.name}</h3>
+          <p className="card__slogan">{props.previewProject.slogan}</p>
           <h3 className="card__descriptionTitle">Descripción del proyecto</h3>
-          <p className="card__description">{props.description}</p>
+          <p className="card__description">
+            {props.previewProject.description}
+          </p>
 
           <div className="card__technicalInfo">
-            <p className="card__technologies">{props.technologies}</p>
+            <p className="card__technologies">
+              {props.previewProject.technologies}
+            </p>
             <div className="container-icons">
               <a
                 className="icon icon__www"
-                href={props.demoWeb}
+                href={props.previewProject.demo}
                 title="Haz click para ver el proyecto online"
                 target="_blank"
               >
@@ -48,7 +52,7 @@ function Preview(props) {
               </a>
               <a
                 className="icon icon__github"
-                href={props.gitHub}
+                href={props.previewProject.gitHub}
                 title="Haz click para ver el código del proyecto"
                 target="_blank"
               >
