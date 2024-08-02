@@ -11,12 +11,12 @@ function App() {
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
   const [project, setProject] = useState({
-    name: "Nombre del proyecto",
-    slogan: "Eslogan del proyecto",
-    technologies: "React JS - HTML - CSS",
-    description: lorem,
-    author: "Nombre del autor",
-    job: "Profesión",
+    name: "",
+    slogan: "",
+    technologies: "",
+    description: "",
+    author: "",
+    job: "",
     demo: "",
     gitHub: "",
   });
@@ -29,41 +29,10 @@ function App() {
   );
 
   function changeValue(value, id) {
-    if (id === "name") {
-      setProject({
-        ...project,
-        name: value ? value : "Nombre del proyecto",
-      });
-    } else if (id === "slogan") {
-      setProject({
-        ...project,
-        slogan: value ? value : "Eslogan del proyecto",
-      });
-    } else if (id === "repo") {
-      setProject({ ...project, gitHub: value });
-    } else if (id === "demo") {
-      setProject({ ...project, demo: value });
-    } else if (id === "technologies") {
-      setProject({
-        ...project,
-        technologies: value ? value : "React JS - HTML - CSS",
-      });
-    } else if (id === "desc") {
-      setProject({
-        ...project,
-        description: value ? value : lorem,
-      });
-    } else if (id === "autor") {
-      setProject({
-        ...project,
-        author: value ? value : "Nombre",
-      });
-    } else if (id === "job") {
-      setProject({
-        ...project,
-        job: value ? value : "Profesión",
-      });
-    }
+    setProject({
+      ...project,
+      [id]: value,
+    });
   }
 
   //BOTON AÑADIR IMAGEN: (proyecto)
@@ -98,6 +67,7 @@ function App() {
           previewProject={project}
           background={backgroundProject}
           photo={photoAutor}
+          lorem={lorem}
         />
         <Form
           previewProject={project}

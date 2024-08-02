@@ -34,6 +34,7 @@ function Form(props) {
           placeholder="Nombre del proyecto"
           required
           onChange={handleChangeProject}
+          value={props.previewProject.name}
         />
         <input
           className="addForm__input"
@@ -43,6 +44,7 @@ function Form(props) {
           placeholder="Slogan"
           required
           onChange={handleChangeProject}
+          value={props.previewProject.slogan}
         />
         <div className="addForm__2col">
           <input
@@ -53,6 +55,7 @@ function Form(props) {
             placeholder="Repositorio"
             required
             onChange={handleChangeProject}
+            value={props.previewProject.gitHub}
           />
           <input
             className="addForm__input"
@@ -62,6 +65,7 @@ function Form(props) {
             placeholder="Demo"
             required
             onChange={handleChangeProject}
+            value={props.previewProject.demo}
           />
         </div>
         <input
@@ -72,6 +76,7 @@ function Form(props) {
           placeholder="Tecnologías"
           required
           onChange={handleChangeProject}
+          value={props.previewProject.technologies}
         />
         <textarea
           className="addForm__input"
@@ -81,6 +86,7 @@ function Form(props) {
           placeholder="Descripción"
           required
           onChange={handleChangeProject}
+          value={props.previewProject.description}
         ></textarea>
       </fieldset>
 
@@ -94,6 +100,7 @@ function Form(props) {
           placeholder="Nombre"
           required
           onChange={handleChangeProject}
+          value={props.previewProject.author}
         />
         <input
           className="addForm__input"
@@ -103,6 +110,7 @@ function Form(props) {
           placeholder="Trabajo"
           required
           onChange={handleChangeProject}
+          value={props.previewProject.job}
         />
       </fieldset>
 

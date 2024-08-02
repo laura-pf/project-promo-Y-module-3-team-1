@@ -25,21 +25,27 @@ function Preview(props) {
               repeat: "repeat",
             }}
           ></div>
-          <p className="card__job">{props.previewProject.job}</p>
-          <h3 className="card__name">{props.previewProject.author}</h3>
+          <p className="card__job">{props.previewProject.job || "Profesión"}</p>
+          <h3 className="card__name">
+            {props.previewProject.author || "Nombre del autor"}
+          </h3>
         </div>
 
         <div className="card__project">
-          <h3 className="card__name">{props.previewProject.name}</h3>
-          <p className="card__slogan">{props.previewProject.slogan}</p>
+          <h3 className="card__name">
+            {props.previewProject.name || "Nombre del proyecto"}
+          </h3>
+          <p className="card__slogan">
+            {props.previewProject.slogan || "Eslogan del proyecto"}
+          </p>
           <h3 className="card__descriptionTitle">Descripción del proyecto</h3>
           <p className="card__description">
-            {props.previewProject.description}
+            {props.previewProject.description || props.lorem}
           </p>
 
           <div className="card__technicalInfo">
             <p className="card__technologies">
-              {props.previewProject.technologies}
+              {props.previewProject.technologies || "React JS - HTML - CSS"}
             </p>
             <div className="container-icons">
               <a
