@@ -1,3 +1,5 @@
+import Reset from "./Reset";
+
 function Preview(props) {
   return (
     <section className="preview">
@@ -68,6 +70,7 @@ function Preview(props) {
           </div>
         </div>
       </article>
+      <Reset onClickReset={props.onClickReset} />
     </section>
   );
 }

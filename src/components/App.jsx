@@ -48,6 +48,21 @@ function App() {
     setPhotoAutor(imageUser);
   }
 
+  //BOTON DE RESET
+  function handleClickReset() {
+    console.log("click");
+    setProject({
+      name: "",
+      slogan: "",
+      technologies: "",
+      description: "",
+      author: "",
+      job: "",
+      demo: "",
+      gitHub: "",
+    });
+  }
+
   return (
     <div className="container">
       <Header />
@@ -68,6 +83,7 @@ function App() {
           background={backgroundProject}
           photo={photoAutor}
           lorem={lorem}
+          onClickReset={handleClickReset}
         />
         <Form
           previewProject={project}
