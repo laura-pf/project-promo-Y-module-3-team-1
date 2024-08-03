@@ -40,16 +40,10 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.set("projectInput", project);
-  }, [project]);
-
-  useEffect(() => {
-    localStorage.set("backgroundUpload", backgroundProject);
-  }, [backgroundProject]);
-
-  useEffect(() => {
-    localStorage.set("photoUpload", photoAutor);
-  }, [photoAutor]);
+    localStorage.set("projectInput", project),
+      localStorage.set("backgroundUpload", backgroundProject),
+      localStorage.set("photoUpload", photoAutor);
+  }, [project, backgroundProject, photoAutor]);
 
   //BOTON AÑADIR IMAGEN: (proyecto)
   const fr = new FileReader();
