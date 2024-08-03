@@ -1,31 +1,35 @@
 import "../scss/App.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Form from "./Form";
 import Preview from "./Preview";
 import Title from "../images/titulo.png";
+import localStorage from "../services/localStorage";
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
-  const [project, setProject] = useState({
-    name: "",
-    slogan: "",
-    technologies: "",
-    description: "",
-    author: "",
-    job: "",
-    demo: "",
-    gitHub: "",
-  });
+  const [project, setProject] = useState(
+    localStorage.get("projectInput", {
+      name: "",
+      slogan: "",
+      technologies: "",
+      description: "",
+      author: "",
+      job: "",
+      demo: "",
+      gitHub: "",
+    })
+  );
 
   const [backgroundProject, setBackgroundProject] = useState(
-    `url(./src/images/photonews.jpg)`
+    localStorage.get("backgroundUpload", `url(./src/images/photonews.jpg)`)
   );
+
   const [photoAutor, setPhotoAutor] = useState(
-    `url(./src/images/chicamegafono.jpg)`
+    localStorage.get("photoUpload", `url(./src/images/chicamegafono.jpg)`)
   );
 
   function changeValue(value, id) {
@@ -34,6 +38,18 @@ function App() {
       [id]: value,
     });
   }
+
+  useEffect(() => {
+    localStorage.set("projectInput", project);
+  }, [project]);
+
+  useEffect(() => {
+    localStorage.set("backgroundUpload", backgroundProject);
+  }, [backgroundProject]);
+
+  useEffect(() => {
+    localStorage.set("photoUpload", photoAutor);
+  }, [photoAutor]);
 
   //BOTON AÑADIR IMAGEN: (proyecto)
   const fr = new FileReader();
