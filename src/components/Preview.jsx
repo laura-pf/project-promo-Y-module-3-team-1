@@ -40,7 +40,7 @@ function Preview(props) {
           </p>
           <h3 className="card__descriptionTitle">Descripción del proyecto</h3>
           <p className="card__description">
-            {props.previewProject.description || props.lorem}
+            {props.previewProject.desc || props.lorem}
           </p>
 
           <div className="card__technicalInfo">
@@ -58,7 +58,7 @@ function Preview(props) {
               </a>
               <a
                 className="icon icon__github"
-                href={props.previewProject.gitHub}
+                href={props.previewProject.repo}
                 title="Haz click para ver el código del proyecto"
                 target="_blank"
               >

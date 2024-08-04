@@ -51,11 +51,11 @@ function Form(props) {
             className="addForm__input"
             type="url"
             name="repo"
-            id="gitHub"
+            id="repo"
             placeholder="Repositorio"
             required
             onChange={handleChangeProject}
-            value={props.previewProject.gitHub}
+            value={props.previewProject.repo}
           />
           <input
             className="addForm__input"
@@ -82,11 +82,11 @@ function Form(props) {
           className="addForm__input"
           type="text"
           name="desc"
-          id="description"
+          id="desc"
           placeholder="Descripción"
           required
           onChange={handleChangeProject}
-          value={props.previewProject.description}
+          value={props.previewProject.desc}
         ></textarea>
       </fieldset>
 
@@ -136,7 +136,10 @@ function Form(props) {
           onChange={getImageUser}
         />
 
-        <button className="button button--color--green">
+        <button
+          onClick={props.onSubmitProject}
+          className="button button--color--green"
+        >
           Guardar proyecto
         </button>
       </fieldset>
