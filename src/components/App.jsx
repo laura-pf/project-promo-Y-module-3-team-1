@@ -61,6 +61,8 @@ function App() {
       demo: "",
       gitHub: "",
     });
+    setBackgroundProject(`url(./src/images/photonews.jpg)`);
+    setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
   }
 
   return (
