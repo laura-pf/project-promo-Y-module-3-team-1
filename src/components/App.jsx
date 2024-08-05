@@ -23,14 +23,14 @@ function App() {
       demo: "",
       repo: "",
       image:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/photonews.jpg?raw=true",
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/photonews1.jpg?raw=true",
       photo:
         "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/chicamegafono.jpg?raw=true",
     })
   );
 
   const [backgroundProject, setBackgroundProject] = useState(
-    localStorage.get("backgroundUpload", `url(./src/images/photonews.jpg)`)
+    localStorage.get("backgroundUpload", `url(./src/images/photonews1.jpg)`)
   );
 
   const [photoAutor, setPhotoAutor] = useState(
