@@ -55,7 +55,7 @@ function Form(props) {
             className="addForm__input"
             type="url"
             name="repo"
-            id="repo"
+            id="gitHub"
             placeholder="Repositorio"
             required
             onChange={handleChangeProject}
@@ -86,7 +86,7 @@ function Form(props) {
           className="addForm__input"
           type="text"
           name="desc"
-          id="desc"
+          id="description"
           placeholder="Descripción"
           required
           onChange={handleChangeProject}

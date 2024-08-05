@@ -89,7 +89,10 @@
     background-color: $color-dark-lilac;
   }
 }
-
+.preview {
+  display: flex;
+  flex-direction: column;
+}
 .preview .projectImage {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -210,6 +213,11 @@
     margin-bottom: 0.2rem;
   }
   &__name {
+    font: $font-card-title;
+    margin-bottom: 0.2rem;
+    text-align: center;
+  }
+  &__name-project {
     font: $font-card-title;
     margin-bottom: 0.2rem;
   }

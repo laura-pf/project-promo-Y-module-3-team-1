@@ -11,23 +11,17 @@ import Modal from "./Modal";
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
-  const [project, setProject] = useState(
-    localStorage.get("projectInput", {
-      name: "",
-      slogan: "",
-      technologies: "",
-      desc: "",
-      author: "",
-      job: "",
-      demo: "",
-      repo: "",
-      image:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/photonews.jpg?raw=true",
-      photo:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/chicamegafono.jpg?raw=true",
-    })
-  );
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos!";
+  const [project, setProject] = useState({
+    name: "",
+    slogan: "",
+    technologies: "",
+    description: "",
+    author: "",
+    job: "",
+    demo: "",
+    gitHub: "",
+  });
 
   const [backgroundProject, setBackgroundProject] = useState(
     localStorage.get("backgroundUpload", `url(./src/images/photonews.jpg)`)
@@ -78,6 +72,22 @@ function App() {
         setCardUrl(data.cardURL);
       });
   }
+  //BOTON DE RESET
+  function handleClickReset() {
+    console.log("click");
+    setProject({
+      name: "",
+      slogan: "",
+      technologies: "",
+      description: "",
+      author: "",
+      job: "",
+      demo: "",
+      gitHub: "",
+    });
+    setBackgroundProject(`url(./src/images/photonews.jpg)`);
+    setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
+  }
 
   return (
     <div className="container">
@@ -99,6 +109,7 @@ function App() {
           background={backgroundProject}
           photo={photoAutor}
           lorem={lorem}
+          onClickReset={handleClickReset}
         />
         <Form
           previewProject={project}

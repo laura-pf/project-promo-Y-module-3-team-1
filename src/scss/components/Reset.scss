@@ -1,0 +1,29 @@
+.eraser-button {
+  text-align: center;
+  font-family: "Inconsolata", monospace;
+  font-size: 24px;
+  font-weight: bolder;
+  color: #333;
+  background-color: #ffcccb;
+  border: 2px solid #ff8a80;
+  border-radius: 70px;
+
+  box-shadow: 6px 6px #d32f2f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  margin-bottom: 50px;
+  width: 110px;
+  height: 40px;
+  align-self: center;
+
+  @media screen and (min-width: 768px) {
+    align-self: flex-end;
+    margin-right: 30px;
+  }
+}
+
+.eraser-button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+}
