@@ -1,3 +1,5 @@
+import Reset from "./Reset";
+
 function Preview(props) {
   return (
     <section className="preview">
@@ -32,7 +34,7 @@ function Preview(props) {
         </div>
 
         <div className="card__project">
-          <h3 className="card__name">
+          <h3 className="card__name-project">
             {props.previewProject.name || "Nombre del proyecto"}
           </h3>
           <p className="card__slogan">
@@ -68,6 +70,7 @@ function Preview(props) {
           </div>
         </div>
       </article>
+      <Reset onClickReset={props.onClickReset} />
     </section>
   );
 }

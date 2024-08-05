@@ -11,7 +11,7 @@ import Modal from "./Modal";
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos!";
   const [project, setProject] = useState(
     localStorage.get("projectInput", {
       name: "",
@@ -78,6 +78,22 @@ function App() {
         setCardUrl(data.cardURL);
       });
   }
+  //BOTON DE RESET
+  function handleClickReset() {
+    console.log("click");
+    setProject({
+      name: "",
+      slogan: "",
+      technologies: "",
+      desc: "",
+      author: "",
+      job: "",
+      demo: "",
+      repo: "",
+    });
+    setBackgroundProject(`url(./src/images/photonews.jpg)`);
+    setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
+  }
 
   return (
     <div className="container">
@@ -99,6 +115,7 @@ function App() {
           background={backgroundProject}
           photo={photoAutor}
           lorem={lorem}
+          onClickReset={handleClickReset}
         />
         <Form
           previewProject={project}
