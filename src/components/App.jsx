@@ -20,7 +20,7 @@ function App() {
     author: "",
     job: "",
     demo: "",
-    gitHub: "",
+    repo: "",
   });
 
   const [backgroundProject, setBackgroundProject] = useState(
@@ -83,7 +83,7 @@ function App() {
       author: "",
       job: "",
       demo: "",
-      gitHub: "",
+      repo: "",
     });
     setBackgroundProject(`url(./src/images/photonews.jpg)`);
     setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);

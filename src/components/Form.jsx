@@ -55,7 +55,7 @@ function Form(props) {
             className="addForm__input"
             type="url"
             name="repo"
-            id="gitHub"
+            id="repo"
             placeholder="Repositorio"
             required
             onChange={handleChangeProject}
