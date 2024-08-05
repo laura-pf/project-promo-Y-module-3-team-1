@@ -22,8 +22,10 @@ function App() {
       job: "",
       demo: "",
       repo: "",
-      image: "",
-      photo: "",
+      image:
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/photonews.jpg?raw=true",
+      photo:
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/chicamegafono.jpg?raw=true",
     })
   );
 
