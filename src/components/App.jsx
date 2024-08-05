@@ -12,16 +12,18 @@ function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos!";
-  const [project, setProject] = useState({
-    name: "",
-    slogan: "",
-    technologies: "",
-    description: "",
-    author: "",
-    job: "",
-    demo: "",
-    repo: "",
-  });
+  const [project, setProject] = useState(
+    localStorage.get("projectInput", {
+      name: "",
+      slogan: "",
+      technologies: "",
+      desc: "",
+      author: "",
+      job: "",
+      demo: "",
+      repo: "",
+    })
+  );
 
   const [backgroundProject, setBackgroundProject] = useState(
     localStorage.get("backgroundUpload", `url(./src/images/photonews.jpg)`)
@@ -79,7 +81,7 @@ function App() {
       name: "",
       slogan: "",
       technologies: "",
-      description: "",
+      desc: "",
       author: "",
       job: "",
       demo: "",

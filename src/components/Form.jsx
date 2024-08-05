@@ -86,7 +86,7 @@ function Form(props) {
           className="addForm__input"
           type="text"
           name="desc"
-          id="description"
+          id="desc"
           placeholder="Descripción"
           required
           onChange={handleChangeProject}
