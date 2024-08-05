@@ -91,7 +91,7 @@ function App() {
       demo: "",
       repo: "",
     });
-    setBackgroundProject(`url(./src/images/photonews.jpg)`);
+    setBackgroundProject(`url(./src/images/photonews1.jpg)`);
     setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
   }
 
