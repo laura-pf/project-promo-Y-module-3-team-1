@@ -23,14 +23,14 @@ function App() {
       demo: "",
       repo: "",
       image:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/photonews1.jpg?raw=true",
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/webpage.png?raw=true",
       photo:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/chicamegafono.jpg?raw=true",
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/1642406313696.jpeg?raw=true",
     })
   );
 
   const [backgroundProject, setBackgroundProject] = useState(
-    localStorage.get("backgroundUpload", `url(./src/images/photonews1.jpg)`)
+    localStorage.get("backgroundUpload", `url(./src/images/photonews2.jpeg)`)
   );
 
   const [photoAutor, setPhotoAutor] = useState(
@@ -91,7 +91,7 @@ function App() {
       demo: "",
       repo: "",
     });
-    setBackgroundProject(`url(./src/images/photonews1.jpg)`);
+    setBackgroundProject(`url(./src/images/photonews2.jpeg)`);
     setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
   }
 
