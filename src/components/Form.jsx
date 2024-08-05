@@ -4,6 +4,10 @@ function Form(props) {
     const id = event.target.id;
     props.onChangeForm(valueProject, id);
   }
+  function handleClickSave(event) {
+    event.preventDefault();
+    props.onSubmitProject();
+  }
 
   /**
    * @param {evento} e
@@ -137,7 +141,7 @@ function Form(props) {
         />
 
         <button
-          onClick={props.onSubmitProject}
+          onClick={handleClickSave}
           className="button button--color--green"
         >
           Guardar proyecto

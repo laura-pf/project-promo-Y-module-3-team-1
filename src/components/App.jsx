@@ -20,10 +20,8 @@ function App() {
     job: "",
     demo: "",
     repo: "",
-    image:
-      "https://cdn.dribbble.com/userupload/15541693/file/original-7a5cef95352c2e9867db829fcee5bf93.png?resize=2048x1536",
-    photo:
-      "https://img.freepik.com/foto-gratis/hermosa-empresaria-sosteniendo-su-tableta_23-2148826467.jpg?size=626&ext=jpg&ga=GA1.1.672697106.1717372800&semt=ais_user",
+    image: "",
+    photo: "",
   });
 
   const [backgroundProject, setBackgroundProject] = useState(
@@ -54,8 +52,8 @@ function App() {
     setPhotoAutor(imageUser);
   }
 
-  function handleSaveProject(event) {
-    event.preventDefault();
+  function handleSaveProject() {
+    console.log(project);
     fetch("https://dev.adalab.es/api/projectCard", {
       method: "POST",
       headers: {
