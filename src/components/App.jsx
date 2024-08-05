@@ -22,8 +22,10 @@ function App() {
       job: "",
       demo: "",
       repo: "",
-      image: "",
-      photo: "",
+      image:
+        "https://empresa.org.ar/wp-content/uploads/2019/01/gestion-de-proyectos-1.jpeg",
+      photo:
+        "https://img.freepik.com/foto-gratis/retrato-expresivo-mujer-joven_1258-48167.jpg",
     })
   );
 
