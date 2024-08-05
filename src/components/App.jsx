@@ -9,7 +9,7 @@ import Title from "../images/titulo.png";
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos! Fugiat itaque soluta sint veritatis sed iste quam? Cum fuga illum sapiente ex illo!";
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos!";
   const [project, setProject] = useState({
     name: "",
     slogan: "",

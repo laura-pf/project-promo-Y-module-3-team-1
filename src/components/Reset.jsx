@@ -8,7 +8,7 @@ function Reset(props) {
   return (
     <>
       <button className="eraser-button" onClick={handleClick}>
-        <span>RESET</span>
+        RESET
       </button>
     </>
   );
