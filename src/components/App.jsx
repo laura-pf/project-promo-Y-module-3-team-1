@@ -6,6 +6,7 @@ import Form from "./Form";
 import Preview from "./Preview";
 import Title from "../images/titulo.png";
 import localStorage from "../services/localStorage";
+import Modal from "./Modal";
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
@@ -16,11 +17,13 @@ function App() {
       name: "",
       slogan: "",
       technologies: "",
-      description: "",
+      desc: "",
       author: "",
       job: "",
       demo: "",
-      gitHub: "",
+      repo: "",
+      image: "",
+      photo: "",
     })
   );
 
@@ -31,6 +34,7 @@ function App() {
   const [photoAutor, setPhotoAutor] = useState(
     localStorage.get("photoUpload", `url(./src/images/chicamegafono.jpg)`)
   );
+  const [cardUrl, setCardUrl] = useState("");
 
   function changeValue(value, id) {
     setProject({
@@ -56,6 +60,21 @@ function App() {
   function writeImageUser() {
     const imageUser = `url(${fr.result})`;
     setPhotoAutor(imageUser);
+  }
+
+  function handleSaveProject() {
+    console.log(project);
+    fetch("https://dev.adalab.es/api/projectCard", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(project),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCardUrl(data.cardURL);
+      });
   }
 
   return (
@@ -85,8 +104,11 @@ function App() {
           fr={fr}
           onClickBackround={writeImage}
           onChangePhotoUser={writeImageUser}
+          onSubmitProject={handleSaveProject}
         />
       </main>
+      {cardUrl ? <Modal cardUrl={cardUrl} /> : null}
+
       <Footer />
     </div>
   );
