@@ -23,9 +23,9 @@ function App() {
       demo: "",
       repo: "",
       image:
-        "https://empresa.org.ar/wp-content/uploads/2019/01/gestion-de-proyectos-1.jpeg",
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/photonews.jpg?raw=true",
       photo:
-        "https://img.freepik.com/foto-gratis/retrato-expresivo-mujer-joven_1258-48167.jpg",
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/chicamegafono.jpg?raw=true",
     })
   );
 
