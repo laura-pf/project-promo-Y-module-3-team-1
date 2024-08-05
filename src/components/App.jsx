@@ -21,12 +21,17 @@ function App() {
     gitHub: "",
   });
 
-  const [backgroundProject, setBackgroundProject] = useState(
-    `url(./src/images/photonews.jpg)`
-  );
-  const [photoAutor, setPhotoAutor] = useState(
-    `url(./src/images/chicamegafono.jpg)`
-  );
+  const [avatar, setAvatar] = useState("");
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
+
+  // const [backgroundProject, setBackgroundProject] = useState(
+  //   `url(./src/images/photonews.jpg)`
+  // );
+  // const [photoAutor, setPhotoAutor] = useState(
+  //   `url(./src/images/chicamegafono.jpg)`
+  // );
 
   function changeValue(value, id) {
     setProject({
@@ -36,17 +41,17 @@ function App() {
   }
 
   //BOTON AÑADIR IMAGEN: (proyecto)
-  const fr = new FileReader();
+  // const fr = new FileReader();
 
-  function writeImage() {
-    const backgroundSelect = `url(${fr.result})`;
-    setBackgroundProject(backgroundSelect);
-  }
+  // function writeImage() {
+  //   const backgroundSelect = `url(${fr.result})`;
+  //   setBackgroundProject(backgroundSelect);
+  // }
 
-  function writeImageUser() {
-    const imageUser = `url(${fr.result})`;
-    setPhotoAutor(imageUser);
-  }
+  // function writeImageUser() {
+  //   const imageUser = `url(${fr.result})`;
+  //   setPhotoAutor(imageUser);
+  // }
 
   //BOTON DE RESET
   function handleClickReset() {
@@ -61,7 +66,7 @@ function App() {
       demo: "",
       gitHub: "",
     });
-    setBackgroundProject(`url(./src/images/photonews.jpg)`);
+    `url(./src/images/photonews.jpg)`;
     setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
   }
 
@@ -82,17 +87,20 @@ function App() {
 
         <Preview
           previewProject={project}
-          background={backgroundProject}
-          photo={photoAutor}
+          // background={backgroundProject}
+          // photo={photoAutor}
+          avatar={avatar}
           lorem={lorem}
           onClickReset={handleClickReset}
         />
         <Form
+          avatar={avatar}
+          updateAvatar={updateAvatar}
           previewProject={project}
           onChangeForm={changeValue}
           fr={fr}
-          onClickBackround={writeImage}
-          onChangePhotoUser={writeImageUser}
+          // onClickBackround={writeImage}
+          // onChangePhotoUser={writeImageUser}
         />
       </main>
       <Footer />

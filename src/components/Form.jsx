@@ -1,25 +1,41 @@
+import React from "react";
+import defaultAvatar from "../images/photonews.jpg";
+
 function Form(props) {
+  const fr = new FileReader();
+  const myFileField = React.createRef();
   function handleChangeProject(event) {
     const valueProject = event.target.value;
     const id = event.target.id;
     props.onChangeForm(valueProject, id);
+    event.currentTarget.files[0];
+
+    if (event.currentTarget.files.length > 0) {
+      // guardo el primer fichero en myFile
+      const myFile = event.currentTarget.files[0];
+
+      // añado un evento load al manejador de ficheros
+      // por qué añado un evento, pues porque esto es una acción asíncrona, imaginemos que el fichero pesa 5 Gb, el navegador puede tardar unos cuantos segundos en cargar y procesar el fichero, por eso le decimos "navegador, cuando termines de cargar el fichero me ejecutas el método  image"
+      fr.addEventListener("load", getImage);
+
+      // le digo al manejador de ficheros que maneje, que cargue el fichero
+      fr.readAsDataURL(myFile);
+    }
   }
 
-  /**
-   * @param {evento} e
-   */
+  const getImage = () => {
+    // cuando el navegador termina de manejar el fichero se ejecuta este método porque lo hemos indicado en  fr.addEventListener('load',  getImage);
 
-  function getImage(e) {
-    const myFile = e.currentTarget.files[0];
-    props.fr.addEventListener("load", props.onClickBackround);
-    props.fr.readAsDataURL(myFile);
-  }
+    //  fr guarda información útil sobre el fichero cargado
+    //console.log('Información útil sobre el fichero cargado', fr);
 
-  function getImageUser(e) {
-    const myFile = e.currentTarget.files[0];
-    props.fr.addEventListener("load", props.onChangePhotoUser);
-    props.fr.readAsDataURL(myFile);
-  }
+    //  fr.result contiene los datos del fichero en un formato que se llama base64 que nos vale por que podemos usarlo para pintar una imagen en HTML
+    const image = fr.result;
+
+    // aquí hago lifting con los datos del fichero
+    // lo que haga el componente madre con esta información es otro problema diferente
+    props.updateAvatar(image);
+  };
 
   return (
     <form action="" className="addForm">
@@ -123,7 +139,8 @@ function Form(props) {
           type="file"
           name="image"
           id="image"
-          onChange={getImage}
+          ref={myFileField}
+          onChange={handleChangeProject}
         />
         <label htmlFor="photo" className="button button--color--rose">
           Subir foto de la autora
@@ -131,9 +148,10 @@ function Form(props) {
         <input
           className="addForm__hidden"
           type="file"
+          ref={myFileField}
           name="photo"
           id="photo"
-          onChange={getImageUser}
+          onChange={handleChangeProject}
         />
 
         <button className="button button--color--green">
