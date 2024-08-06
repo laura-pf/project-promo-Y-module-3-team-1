@@ -90,9 +90,14 @@ function App() {
       job: "",
       demo: "",
       repo: "",
+      image:
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/webpage.png?raw=true",
+      photo:
+        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/1642406313696.jpeg?raw=true",
     });
     setBackgroundProject(`url(./src/images/photonews2.jpeg)`);
     setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
+    localStorage.clear();
   }
 
   return (
