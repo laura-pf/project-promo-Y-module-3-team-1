@@ -7,6 +7,8 @@ import Preview from "./Preview";
 import Title from "../images/titulo.png";
 import localStorage from "../services/localStorage";
 import Modal from "./Modal";
+import imageProject from "../images/photonews2.jpeg";
+import imageAuthor from "../images/chicamegafono.jpg";
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
@@ -30,11 +32,11 @@ function App() {
   );
 
   const [backgroundProject, setBackgroundProject] = useState(
-    localStorage.get("backgroundUpload", `url(./src/images/photonews2.jpeg)`)
+    localStorage.get("backgroundUpload", `url(${imageProject})`)
   );
 
   const [photoAutor, setPhotoAutor] = useState(
-    localStorage.get("photoUpload", `url(./src/images/chicamegafono.jpg)`)
+    localStorage.get("photoUpload", `url(${imageAuthor})`)
   );
   const [cardUrl, setCardUrl] = useState("");
 
@@ -95,8 +97,8 @@ function App() {
       photo:
         "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/1642406313696.jpeg?raw=true",
     });
-    setBackgroundProject(`url(./src/images/photonews2.jpeg)`);
-    setPhotoAutor(`url(./src/images/chicamegafono.jpg)`);
+    setBackgroundProject(`url(${imageProject})`);
+    setPhotoAutor(`url(${imageAuthor})`);
     localStorage.clear();
   }
 
