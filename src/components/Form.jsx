@@ -9,20 +9,12 @@ function Form(props) {
     props.onSubmitProject();
   }
 
-  /**
-   * @param {evento} e
-   */
-
-  function getImage(e) {
-    const myFile = e.currentTarget.files[0];
-    props.fr.addEventListener("load", props.onClickBackround);
-    props.fr.readAsDataURL(myFile);
+  function handleImageProject(e) {
+    props.onChangeImageProject(e);
   }
 
-  function getImageUser(e) {
-    const myFile = e.currentTarget.files[0];
-    props.fr.addEventListener("load", props.onChangePhotoUser);
-    props.fr.readAsDataURL(myFile);
+  function handlePhotoUser(e) {
+    props.onChangePhotoUser(e);
   }
 
   return (
@@ -127,7 +119,7 @@ function Form(props) {
           type="file"
           name="image"
           id="image"
-          onChange={getImage}
+          onChange={handleImageProject}
         />
         <label htmlFor="photo" className="button button--color--rose">
           Subir foto de la autora
@@ -137,7 +129,7 @@ function Form(props) {
           type="file"
           name="photo"
           id="photo"
-          onChange={getImageUser}
+          onChange={handlePhotoUser}
         />
 
         <button
