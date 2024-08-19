@@ -39,6 +39,7 @@ function App() {
     localStorage.get("photoUpload", `url(${imageAuthor})`)
   );
   const [cardUrl, setCardUrl] = useState("");
+  const [error, setError] = useState(null);
 
   function changeValue(value, id) {
     setProject({
@@ -67,6 +68,22 @@ function App() {
   }
 
   function handleSaveProject() {
+    if (
+      !project.name ||
+      !project.slogan ||
+      !project.technologies ||
+      !project.desc ||
+      !project.author ||
+      !project.job ||
+      !project.demo ||
+      !project.repo ||
+      !project.image ||
+      !project.photo
+    ) {
+      setError("Todos los campos son obligatorios.");
+      return;
+    }
+
     console.log(project);
     fetch("https://dev.adalab.es/api/projectCard", {
       method: "POST",
@@ -75,11 +92,24 @@ function App() {
       },
       body: JSON.stringify(project),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error de petición al servidor: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         setCardUrl(data.cardURL);
+        setError(null); // Resetea el error en caso de éxito
+      })
+      .catch((error) => {
+        console.error("Error de petición al servidor:", error);
+        setError(
+          "Hubo un error al enviar la petición. Por favor, intentalo de nuevo."
+        );
       });
   }
+
   //BOTON DE RESET
   function handleClickReset() {
     console.log("click");
@@ -133,7 +163,7 @@ function App() {
           onSubmitProject={handleSaveProject}
         />
       </main>
-      {cardUrl ? <Modal cardUrl={cardUrl} /> : null}
+      {(cardUrl || error) && <Modal errorMessage={error} cardUrl={cardUrl} />}
 
       <Footer />
     </div>
