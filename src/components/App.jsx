@@ -7,8 +7,8 @@ import Preview from "./Preview";
 import Title from "../images/titulo.png";
 import localStorage from "../services/localStorage";
 import Modal from "./Modal";
-import imageProject from "../images/photonews2.jpeg";
-import imageAuthor from "../images/chicamegafono.jpg";
+// import imageProject from "../images/photonews2.jpeg";
+// import imageAuthor from "../images/chicamegafono.jpg";
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
@@ -24,20 +24,11 @@ function App() {
       job: "",
       demo: "",
       repo: "",
-      image:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/webpage.png?raw=true",
-      photo:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/1642406313696.jpeg?raw=true",
+      image: "",
+      photo: "",
     })
   );
 
-  const [backgroundProject, setBackgroundProject] = useState(
-    localStorage.get("backgroundUpload", `url(${imageProject})`)
-  );
-
-  const [photoAutor, setPhotoAutor] = useState(
-    localStorage.get("photoUpload", `url(${imageAuthor})`)
-  );
   const [cardUrl, setCardUrl] = useState("");
   const [error, setError] = useState(null);
 
@@ -49,22 +40,30 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.set("projectInput", project),
-      localStorage.set("backgroundUpload", backgroundProject),
-      localStorage.set("photoUpload", photoAutor);
-  }, [project, backgroundProject, photoAutor]);
+    localStorage.set("projectInput", project);
+  }, [project]);
 
   //BOTON AÑADIR IMAGEN: (proyecto)
   const fr = new FileReader();
 
-  function writeImage() {
-    const backgroundSelect = `url(${fr.result})`;
-    setBackgroundProject(backgroundSelect);
+  function handleImageProject(e) {
+    fr.onload = () => {
+      if (fr.result && typeof fr.result === "string") {
+        const updatedProject = { ...project, image: fr.result.toString() };
+        setProject(updatedProject);
+      }
+    };
+    fr.readAsDataURL(e.target.files[0]);
   }
 
-  function writeImageUser() {
-    const imageUser = `url(${fr.result})`;
-    setPhotoAutor(imageUser);
+  function handlePhotoUser(e) {
+    fr.onload = () => {
+      if (fr.result && typeof fr.result === "string") {
+        const updatedProject = { ...project, photo: fr.result.toString() };
+        setProject(updatedProject);
+      }
+    };
+    fr.readAsDataURL(e.target.files[0]);
   }
 
   function handleSaveProject() {
@@ -122,13 +121,9 @@ function App() {
       job: "",
       demo: "",
       repo: "",
-      image:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/webpage.png?raw=true",
-      photo:
-        "https://github.com/laura-pf/project-promo-Y-module-3-team-1/blob/dev/src/images/1642406313696.jpeg?raw=true",
+      image: "",
+      photo: "",
     });
-    setBackgroundProject(`url(${imageProject})`);
-    setPhotoAutor(`url(${imageAuthor})`);
     localStorage.clear();
   }
 
@@ -149,17 +144,16 @@ function App() {
 
         <Preview
           previewProject={project}
-          background={backgroundProject}
-          photo={photoAutor}
+          background={project.image}
+          photo={project.photo}
           lorem={lorem}
           onClickReset={handleClickReset}
         />
         <Form
           previewProject={project}
           onChangeForm={changeValue}
-          fr={fr}
-          onClickBackround={writeImage}
-          onChangePhotoUser={writeImageUser}
+          onChangeImageProject={handleImageProject}
+          onChangePhotoUser={handlePhotoUser}
           onSubmitProject={handleSaveProject}
         />
       </main>

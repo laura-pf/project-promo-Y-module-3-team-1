@@ -1,4 +1,6 @@
 import Reset from "./Reset";
+import imageProject from "../images/photonews2.jpeg";
+import imageAuthor from "../images/chicamegafono.jpg";
 
 function Preview(props) {
   return (
@@ -6,7 +8,7 @@ function Preview(props) {
       <div
         className="projectImage"
         style={{
-          backgroundImage: `${props.background}`,
+          backgroundImage: `url(${props.background || imageProject})`,
           repeat: "repeat",
         }}
       >
@@ -23,7 +25,7 @@ function Preview(props) {
           <div
             className="card__autorPhoto"
             style={{
-              backgroundImage: `${props.photo}`,
+              backgroundImage: `url(${props.photo || imageAuthor})`,
               repeat: "repeat",
             }}
           ></div>
