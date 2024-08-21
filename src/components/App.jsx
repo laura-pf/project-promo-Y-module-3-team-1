@@ -7,8 +7,7 @@ import Preview from "./Preview";
 import Title from "../images/titulo.png";
 import localStorage from "../services/localStorage";
 import Modal from "./Modal";
-// import imageProject from "../images/photonews2.jpeg";
-// import imageAuthor from "../images/chicamegafono.jpg";
+
 
 function App() {
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
@@ -132,7 +131,6 @@ function App() {
       <Header />
       <main className="main">
         <section className="hero">
-          {/* <h2 className="hero__title">Proyectos molones</h2> */}
           <img className="hero__title" src={Title} alt="setProject" />
           <p className="hero__text">
             Escaparate en línea para recoger ideas a través de la tecnología
