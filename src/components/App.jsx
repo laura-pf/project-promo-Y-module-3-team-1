@@ -43,9 +43,9 @@ function App() {
   }, [project]);
 
   //BOTON AÑADIR IMAGEN: (proyecto)
+  const fr = new FileReader();
 
   function handleImageProject(e) {
-    const fr = new FileReader();
     fr.onload = () => {
       if (fr.result && typeof fr.result === "string") {
         const updatedProject = { ...project, image: fr.result.toString() };
@@ -56,8 +56,6 @@ function App() {
   }
 
   function handlePhotoUser(e) {
-    const fr = new FileReader();
-
     fr.onload = () => {
       if (fr.result && typeof fr.result === "string") {
         const updatedProject = { ...project, photo: fr.result.toString() };
