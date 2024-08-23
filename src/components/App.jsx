@@ -7,9 +7,10 @@ import Preview from "./Preview";
 import Title from "../images/titulo.png";
 import localStorage from "../services/localStorage";
 import Modal from "./Modal";
-
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate(); // Hook para navegación programática
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos!";
@@ -79,6 +80,7 @@ function App() {
       !project.photo
     ) {
       setError("Todos los campos son obligatorios.");
+      navigate("/Modal");
       return;
     }
 
@@ -99,12 +101,14 @@ function App() {
       .then((data) => {
         setCardUrl(data.cardURL);
         setError(null); // Resetea el error en caso de éxito
+        navigate("/Modal"); // Navegar a la ruta del modal
       })
       .catch((error) => {
         console.error("Error de petición al servidor:", error);
         setError(
           "Hubo un error al enviar la petición. Por favor, intentalo de nuevo."
         );
+        navigate("/Modal");
       });
   }
 
@@ -140,22 +144,36 @@ function App() {
           </a>
         </section>
 
-        <Preview
-          previewProject={project}
-          background={project.image}
-          photo={project.photo}
-          lorem={lorem}
-          onClickReset={handleClickReset}
-        />
-        <Form
-          previewProject={project}
-          onChangeForm={changeValue}
-          onChangeImageProject={handleImageProject}
-          onChangePhotoUser={handlePhotoUser}
-          onSubmitProject={handleSaveProject}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Preview
+                  previewProject={project}
+                  background={project.image}
+                  photo={project.photo}
+                  lorem={lorem}
+                  onClickReset={handleClickReset}
+                />
+                <Form
+                  previewProject={project}
+                  onChangeForm={changeValue}
+                  onChangeImageProject={handleImageProject}
+                  onChangePhotoUser={handlePhotoUser}
+                  onSubmitProject={handleSaveProject}
+                />
+              </>
+            }
+          />
+
+          <Route
+            path="/Modal"
+            element={<Modal errorMessage={error} cardUrl={cardUrl} />}
+          ></Route>
+        </Routes>
+        {/* {(cardUrl || error) && <Modal errorMessage={error} cardUrl={cardUrl} />} */}
       </main>
-      {(cardUrl || error) && <Modal errorMessage={error} cardUrl={cardUrl} />}
 
       <Footer />
     </div>

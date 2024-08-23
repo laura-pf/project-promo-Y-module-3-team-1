@@ -1,14 +1,15 @@
 .modal {
-  background: white;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  // background: white;
+  // height: 100vh;
+  // width: 100vw;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 300px;
 
   &-postit {
     background-image: url(../../images/postit-green.png);
@@ -25,6 +26,7 @@
     padding-left: 50px;
     transform: rotate(10deg);
     margin-bottom: 20px;
+    text-align: center;
   }
   &-text {
     transform: rotate(10deg);
@@ -32,5 +34,12 @@
     margin-right: 15px;
     text-align: center;
     max-width: 270px;
+  }
+
+  &-link {
+    transform: rotate(10deg);
+    text-align: center;
+    margin: 6px;
+    color: black;
   }
 }
