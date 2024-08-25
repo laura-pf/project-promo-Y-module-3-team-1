@@ -1,12 +1,48 @@
+import { useState } from "react";
+
 function Form(props) {
+  const [errors, setErrors] = useState({}); //estado para manejar errores
+
   function handleChangeProject(event) {
     const valueProject = event.target.value;
     const id = event.target.id;
+
+    // limpia el error cuando el usuario empieza a escribir en el input
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [id]: "",
+    }));
+
     props.onChangeForm(valueProject, id);
   }
+
   function handleClickSave(event) {
     event.preventDefault();
-    props.onSubmitProject();
+
+    // Validar campos requeridos antes de enviar
+    const newErrors = {};
+    if (!props.previewProject.name)
+      newErrors.name = "Este campo es obligatorio.";
+    if (!props.previewProject.slogan)
+      newErrors.slogan = "Este campo es obligatorio.";
+    if (!props.previewProject.repo)
+      newErrors.repo = "Este campo es obligatorio.";
+    if (!props.previewProject.demo)
+      newErrors.demo = "Este campo es obligatorio.";
+    if (!props.previewProject.technologies)
+      newErrors.technologies = "Este campo es obligatorio.";
+    if (!props.previewProject.desc)
+      newErrors.desc = "Este campo es obligatorio.";
+    if (!props.previewProject.author)
+      newErrors.author = "Este campo es obligatorio.";
+    if (!props.previewProject.job) newErrors.job = "Este campo es obligatorio.";
+
+    // Comprueba si hay errores
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      props.onSubmitProject();
+    }
   }
 
   function handleImageProject(e) {
@@ -32,6 +68,7 @@ function Form(props) {
           onChange={handleChangeProject}
           value={props.previewProject.name}
         />
+        {errors.name && <p className="error-message">{errors.name}</p>}
         <input
           className="addForm__input"
           type="text"
@@ -42,6 +79,7 @@ function Form(props) {
           onChange={handleChangeProject}
           value={props.previewProject.slogan}
         />
+        {errors.slogan && <p className="error-message">{errors.slogan}</p>}
         <div className="addForm__2col">
           <input
             className="addForm__input"
@@ -53,6 +91,7 @@ function Form(props) {
             onChange={handleChangeProject}
             value={props.previewProject.repo}
           />
+          {errors.repo && <p className="error-message">{errors.repo}</p>}
           <input
             className="addForm__input"
             type="url"
@@ -63,6 +102,7 @@ function Form(props) {
             onChange={handleChangeProject}
             value={props.previewProject.demo}
           />
+          {errors.demo && <p className="error-message">{errors.demo}</p>}
         </div>
         <input
           className="addForm__input"
@@ -74,6 +114,9 @@ function Form(props) {
           onChange={handleChangeProject}
           value={props.previewProject.technologies}
         />
+        {errors.technologies && (
+          <p className="error-message">{errors.technologies}</p>
+        )}
         <textarea
           className="addForm__input"
           type="text"
@@ -84,6 +127,7 @@ function Form(props) {
           onChange={handleChangeProject}
           value={props.previewProject.desc}
         ></textarea>
+        {errors.desc && <p className="error-message">{errors.desc}</p>}
       </fieldset>
 
       <fieldset className="addForm__group">
@@ -98,6 +142,7 @@ function Form(props) {
           onChange={handleChangeProject}
           value={props.previewProject.author}
         />
+        {errors.author && <p className="error-message">{errors.author}</p>}
         <input
           className="addForm__input"
           type="text"
@@ -108,6 +153,7 @@ function Form(props) {
           onChange={handleChangeProject}
           value={props.previewProject.job}
         />
+        {errors.job && <p className="error-message">{errors.job}</p>}
       </fieldset>
 
       <fieldset className="addForm__group--upload">

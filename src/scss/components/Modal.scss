@@ -7,9 +7,12 @@
   // left: 0;
   // overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-left: 300px;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    position: relative;
+    left: 50%;
+  }
 
   &-postit {
     background-image: url(../../images/postit-green.png);

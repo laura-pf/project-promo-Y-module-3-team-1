@@ -10,7 +10,7 @@ import Modal from "./Modal";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
-  const navigate = useNavigate(); // Hook para navegación programática
+  const navigate = useNavigate();
   // FORMULARIO Y TARJETA DE PREVISUALIZACION
   const lorem =
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora dolore sed corporis non labore praesentium dignissimos!";
@@ -80,7 +80,7 @@ function App() {
       !project.photo
     ) {
       setError("Todos los campos son obligatorios.");
-      navigate("/Modal");
+      navigate("/postit");
       return;
     }
 
@@ -101,14 +101,14 @@ function App() {
       .then((data) => {
         setCardUrl(data.cardURL);
         setError(null); // Resetea el error en caso de éxito
-        navigate("/Modal"); // Navegar a la ruta del modal
+        navigate("/postit");
       })
       .catch((error) => {
         console.error("Error de petición al servidor:", error);
         setError(
           "Hubo un error al enviar la petición. Por favor, intentalo de nuevo."
         );
-        navigate("/Modal");
+        navigate("/postit");
       });
   }
 
@@ -168,7 +168,7 @@ function App() {
           />
 
           <Route
-            path="/Modal"
+            path="/postit"
             element={<Modal errorMessage={error} cardUrl={cardUrl} />}
           ></Route>
         </Routes>
